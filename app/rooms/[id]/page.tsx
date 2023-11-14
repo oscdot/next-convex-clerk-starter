@@ -17,13 +17,14 @@ type ChannelPageProps = {
 const ChannelPage: FC<ChannelPageProps> = ({ params }) => {
   const channel = useStableQuery(api.channels.get, { id: params.id })
   const router = useRouter()
+
+  if (channel === undefined) return null
+
   if (channel === null) {
     toast.error("You don't have access to this channel.")
     router.push('/')
     return null
   }
-
-  if (channel === undefined) return null
 
   return (
     <main className="flex flex-col items-center">

@@ -1,3 +1,4 @@
+'use client'
 import { RoomList } from '@/components/features/rooms/room-list'
 
 const Home = () => {
